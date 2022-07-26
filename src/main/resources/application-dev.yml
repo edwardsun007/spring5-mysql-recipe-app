@@ -9,3 +9,11 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     database: mysql
     show-sql: true # in order to see sql query from our console in dev
+    properties:
+      javax:
+        persistence:
+          schema-generation:
+            create-source: metadata
+            scripts:
+              actions: create # create – generates only database create commands
+              create-target: guru_database_create.sql # the location and file name of the scrip, if it doesn't exist, spring boot JPA will create it
