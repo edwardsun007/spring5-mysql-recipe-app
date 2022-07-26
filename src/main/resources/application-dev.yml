@@ -3,17 +3,18 @@ spring:
     url: jdbc:mysql://localhost:3306/sfg_dev?serverTimezone=UTC
     username: sfg_dev_user
     password: guru
+    initialization-mode: always
   jpa:
     hibernate:
-      ddl-auto: create # hibernate will validate the schema
+      ddl-auto: validate # hibernate will validate the schema
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     database: mysql
     show-sql: true # in order to see sql query from our console in dev
-    properties:
-      javax:
-        persistence:
-          schema-generation:
-            create-source: metadata
-            scripts:
-              actions: create # create – generates only database create commands
-              create-target: guru_database_create.sql # the location and file name of the scrip, if it doesn't exist, spring boot JPA will create it
+#    properties:
+#      javax:
+#        persistence:
+#          schema-generation:
+#            create-source: metadata
+#            scripts:
+#              actions: create # create – generates only database create commands
+              # create-target: database-create-script.sql # THIS DOESN'T WORKS !
